@@ -1,0 +1,13 @@
+services:
+  vue-app:
+    build: .
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    environment:
+      NUXT_HOST: 0.0.0.0
+      NUXT_PORT: 3000
+    volumes:
+      - ./src:/app
+    command: sh -lc "npm ci || npm i && npm run dev"
+    tty: true
